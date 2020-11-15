@@ -41,6 +41,9 @@ public class ScoreFragment extends Fragment {
 		// instance viewmodel here
 		binding.setVm(viewModel);
 		viewModel = new ViewModelProvider(requireActivity()).get((ScoreViewModel.class));
+		binding.setFragment(this);
+		binding.setLifecycleOwner(this);
+		binding.setVm(viewModel);
 		return binding.getRoot();
 	}
 

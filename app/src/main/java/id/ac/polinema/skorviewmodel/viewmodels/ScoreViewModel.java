@@ -20,12 +20,12 @@ public class ScoreViewModel extends ViewModel {
     private final MutableLiveData<ArrayList<GoalScorer>> awayGoalScorerList =
             new MutableLiveData<>(new ArrayList<GoalScorer>());
 
-    public int getHomeScorer(){
+    public int getHomeScore(){
         return homeGoalScorerList.getValue().size();
 
     }
 
-    public int getAwayScorer(){
+    public int getAwayScore(){
         return awayGoalScorerList.getValue().size();
     }
 
@@ -38,13 +38,31 @@ public class ScoreViewModel extends ViewModel {
     }
 
     public void onAddHomeClick(View view){
-        ScoreFragmentDirections.GoalScorerAction action = ScoreFragmentDirections.goalScorerAction(ScoreFragment.HOME);
+        ScoreFragmentDirections.GoalScorerAction action =
+                ScoreFragmentDirections.goalScorerAction(ScoreFragment.HOME);
         Navigation.findNavController(view).navigate(action);
     }
 
     public void onAddAwayClick(View view){
-        ScoreFragmentDirections.GoalScorerAction action = ScoreFragmentDirections.goalScorerAction(ScoreFragment.AWAY);
+        ScoreFragmentDirections.GoalScorerAction action =
+                ScoreFragmentDirections.goalScorerAction(ScoreFragment.AWAY);
         Navigation.findNavController(view).navigate(action);
+    }
+
+    public  String getHomeScorer(){
+        StringBuilder result = new StringBuilder();
+        for ( GoalScorer g : homeGoalScorerList.getValue()){
+            result.append(g.getName()).append(" ").append(g.getMinute()).append("\" ");
+        }
+        return  result.toString();
+    }
+
+    public  String getAwayScorer(){
+        StringBuilder result = new StringBuilder();
+        for ( GoalScorer g : awayGoalScorerList.getValue()){
+            result.append(g.getName()).append(" ").append(g.getMinute()).append("\" ");
+        }
+        return  result.toString();
     }
 
 

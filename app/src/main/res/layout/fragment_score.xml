@@ -8,6 +8,9 @@
 		<variable
 			name="vm"
 			type="id.ac.polinema.skorviewmodel.viewmodels.ScoreViewModel" />
+		<variable
+			name="fragment"
+			type="id.ac.polinema.skorviewmodel.fragments.ScoreFragment" />
 	</data>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
